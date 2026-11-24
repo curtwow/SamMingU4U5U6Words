@@ -149,7 +149,7 @@ function home(){
 }
 /* ---------- learning zone ---------- */
 const L={tab:'card',unit:'all',sec:'all',i:0,flip:false,q:null};
-const Lr=()=>learnPool(L.sec);
+const Lr=()=>{const items=learnPool(L.sec);return L.unit==='all'?items.slice().sort((a,b)=>a.word.localeCompare(b.word,'en',{sensitivity:'base',numeric:true})||a.unit.localeCompare(b.unit)||a.id.localeCompare(b.id)):items;};
 function learn(){
   const list=Lr(),it=list[Math.min(L.i,list.length-1)];
   const tabs=[['card','單字卡'],['list','單字表'],['miss','錯題本'],['quiz','輕鬆練習']];
